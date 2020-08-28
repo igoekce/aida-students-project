@@ -77,11 +77,7 @@ In contrast, once we introduce a single grade (g1) nearly all nodes are relying 
 #### Grid Search
 We were curios how much we could improve our score in the first scenario with a grid search.
 
-````param_grid = {
-    'max_depth': range(5, 30, 5),
-    'n_estimators': range(50, 300, 50)
-    }
-----------------------------------------------------------------------------
+```
 Fitting 5 folds for each of 25 candidates, totalling 125 fits
 [Parallel(n_jobs=-1)]: Using backend LokyBackend with 2 concurrent workers.
 [Parallel(n_jobs=-1)]: Done  37 tasks      | elapsed:    8.7s
@@ -118,7 +114,7 @@ When target and input variables are numerical, pearson correlation can be used t
 
 For the categorical features we opted to do a feature selection using the ANOVA test. As in the Decision Tree, we can see `failures` as a highly relevant feature. We were curious though just how similar the rankings of the features, so we decided to make a comparison.
 
-````
+```
 dt_importances     1.000000
 skb_importances    0.572766
 Name: dt_importances, dtype: float64
