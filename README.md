@@ -140,3 +140,5 @@ Looking at our confusion matrix, we can see that we have little cases where we m
 - Predictions without knowledge of previous grades require deeper insights into social and economic features (eg. income data, parents job and education, living environment)
 - Desirable would be an investigation into different cluster of students with respect to their success at school 
 - Further analysis could help to improve the students' opportunities for more success in the eductional system!
+
+Contribution by Yasin Edin, Andreas Neutze, Norbert Jendreizik, Ibrahim Gökce
