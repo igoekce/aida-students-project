@@ -136,51 +136,20 @@ Alright! So once we change the question from *how good* a student is to whether 
 Looking at our confusion matrix, we can see that we have little cases where we miss someone who could pass (5 cases) but we often predict someone to pass, who in reality would not pass. So universities could use our model without grades as an upper bound, as usually less people will be passing anyway.
 
 ##Summary
+
+![![Results table](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/2020-08-28%20Students_score.png?raw=true)](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/2020-08-28%20Students_score.png?raw=true)
+
 Key Findings*: 
-
-- When using Regression to predict the excact numerical values of the final grade, we achieved the following results:
-
-**Regression**
-*   Without G1, G2: Regression scores around -3/19% depending on regression method (Linear Regression/Random Forest Regression).
-
-*   Including G1: Regession scores increase up to 80/85%.
-*   Including G1, G2 : Further increase up to 90/97%. 
-
-
-**Classification**
-If only success (y/n) is the target variable, better results were achived.
-
-*   Without G1, G2: Classification scores around 68/70 % depending on classification method (Logistic Regression/Random Forest Classifier)
-
-*   Including G1: Regession scores increase up to 89/91%.
-*   Including G1, G2 : Further increase up to 96/96%. 
-
-
 
 **Conclusions:**
 
--> Student's success is highly affected by previous performances.
+- Student's success is highly affected by previous performances.
+- However, it is possible to achieve good predictions on student's success even without using previous grades G1, G2, when thinking of passed vs failed.
+- Selection of features (e.g. SKB) or parameter gridsearch did not lead to major changes.
+- Random Forest models slightly better than Linear or Logistic Regression models. 
 
--> However, it is possible to achieve good predictions on student's success even without using previous grades G1, G2, when using a Random Forest Classifier model.
+## Future Research
 
--> Selection of features (e.g. SKB) or parameter gridsearch did not lead to major changes.
-
--> Random Forest models slightly better than Linear or Logistic Regression models. 
-
-
-
-
-
-backup:
-Introduction (if necessary)
-(- Target criterion is the mean grade over the last three school periods.
-
-- Potentially influencial features are mainly the last three grades, previous failures, but also school related (e.g. number of absences, reason to choose school, extra educational school support), demographic (e.g. student’s age, parent’s job and education) and social (e.g. going out with friends, alcohol consumption) variables. (more than 40 features, 395 observations(mat dataset, 649 datasets Portuguese).
-
-## Future Research & Lessons Learned
-*   Predictions without knowledge of previous grades require deeper insights into social and economic features (eg. income data, parents job and education, living environment)
-
-*   Diserable would be an investigation into different cluster of students with respect to their success at school 
-
-
-*  Further analysis could help to improve the students opportunities for more success in the eductional system!
+- Predictions without knowledge of previous grades require deeper insights into social and economic features (eg. income data, parents job and education, living environment)
+- Diserable would be an investigation into different cluster of students with respect to their success at school 
+- Further analysis could help to improve the students opportunities for more success in the eductional system!
