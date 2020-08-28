@@ -18,7 +18,7 @@ Unless stated otherwise, all calucalations and figures are based on the  Mathema
 
 Let's have a brief look at our dataset and get a better feel for it.
 
-![![alt text](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/distributionofbinaryattributes.png)](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/distributionofbinaryattributes.png)
+![![binary attributes](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/distributionofbinaryattributes.png)](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/distributionofbinaryattributes.png)
 
 Magenta label (grey in brackets)
 - `school`: Mousinho da Silveira (Gabriel Pereira)
@@ -81,8 +81,7 @@ We were curios how much we could improve our score in the first scenario with a 
     'max_depth': range(5, 30, 5),
     'n_estimators': range(50, 300, 50)
     }
-```
-```
+----------------------------------------------------------------------------
 Fitting 5 folds for each of 25 candidates, totalling 125 fits
 [Parallel(n_jobs=-1)]: Using backend LokyBackend with 2 concurrent workers.
 [Parallel(n_jobs=-1)]: Done  37 tasks      | elapsed:    8.7s
@@ -108,4 +107,33 @@ GridSearchCV(cv=5, error_score=nan,
              scoring=None, verbose=2)
 ```
 
+Our Grid Search returned a best score of **0.20** which is not a substantial increase compared to our non-tuned random forest.
+
+####Feature Selection
+So, we were still a bit curious and wanted to double check, how exactly the features resonate with our target variable. We therefore decided to condlude a feature selection and compare it with the feature_importances_ attribute of our forest.
+
+![![Correlation between numerical features and target variable](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/corrNumAndTargetVar.png?raw=true)](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/corrNumAndTargetVar.png?raw=true)
+
+When target and input variables are numerical, pearson correlation can be used to identify the most important features. As expected results indicated that the grades are highly correlated with our target variables (*r* > 0.9).
+
+For the categorical features we opted to do a feature selection using the ANOVA test. As in the Decision Tree, we can see `failures` as a highly relevant feature. We were curious though just how similar the rankings of the features, so we decided to make a comparison.
+
+````
+dt_importances     1.000000
+skb_importances    0.572766
+Name: dt_importances, dtype: float64
+```
+Our *r* is 0.57 which is pretty substanstial, given the fact that we selected a random Decision Tree which also had access to non-categorical data. In conclusion although it is clear that previous performance is highly relevant for actual performance, the ranking of the categorical columns seems to be stable.
+
+###Classification
+
+So, we have little success in predicting student performance without prior performance data, but what if we just want to know whether a student has *passed* or not. So we decided that for any mean grade 9 or lower that a student had *not passed*, while a grade 10 or higher meant that a student had *passed*. 
+
+####Baseline and Random Forest Classifier
+
+![![Correlation Heatmap](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/crossvalscoreScenFamclass.png?raw=true)](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/crossvalscoreScenFamclass.png?raw=true)
+
+Alright! So once we change the question from *how good* a student is to whether a student is *good enough*, we achieve quite respectables scores, even in scenario 1.
+
+![![Correlation Heatmap](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/confusion%20matrix.png?raw=true)](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/confusion%20matrix.png?raw=true)
 
