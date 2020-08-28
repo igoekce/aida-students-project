@@ -19,3 +19,23 @@ Unless stated otherwise, all calucalations and figures are based on the  Mathema
 Let's have a brief look at our dataset and get a better feel for it.
 
 ![![alt text](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/distributionofbinaryattributes.png)](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/distributionofbinaryattributes.png)
+
+Magenta label (grey in brackets)
+- `school`: Mousinho da Silveira (Gabriel Pereira)
+- `sex`: Male (Female)
+- `address`: Urban (Rural)
+- `famsize`: Less or equal than 3 (Greater than 3)
+- `pstatus`: living together (apart)
+- `schoolsup, famsup, paid, activities, nursery, higher, internet, romantic`: yes (no)
+
+Some interesting insights regarding our task:
+1. 95% of the students want to pursue higher education
+2. 45% of the students have paid classes to support their education.
+
+![![Correlation Heatmap](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/Corr%20heatmap.png?raw=true)](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/Corr%20heatmap.png?raw=true)
+
+The heatmap has three distinct spots we would like to comment on:
+
+1. Education level of the parents seems to be somewhat correlated. This is interesting when you follow discussions regarding education level of parents and how this correlates with educational performance of their children.
+2. Daily alcohol consumption is correlated with weekly alcohol consumption and both are (although slightly less) correlated with how often students go out with their friends.
+3. All three grades are highly correlated with one another. The only other attribute which could be of importance seems to be failures (indicating previous class failures)
