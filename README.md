@@ -39,3 +39,18 @@ The heatmap has three distinct spots we would like to comment on:
 1. Education level of the parents seems to be somewhat correlated. This is interesting when you follow discussions regarding education level of parents and how this correlates with educational performance of their children.
 2. Daily alcohol consumption is correlated with weekly alcohol consumption and both are (although slightly less) correlated with how often students go out with their friends.
 3. All three grades are highly correlated with one another. The only other attribute which could be of importance seems to be failures (indicating previous class failures)
+
+## Strategy
+
+###Regression
+
+First we conducted some data preprocessing (no missing or duplicate values were present), in particular binary encoding and one hot encoding all relevant variables.
+
+Afterwards we proceeded as follows:
+
+1. Establishing a linear regression baseline and calcualate cross validation scores `cv=5` on all three subtasks.
+2. See whether can improve on our metric R-squared with a Random Forest Regressor.
+3. Check and interpret the `feature_importances_` attribute of our models to be able to answer the question.
+####Baseline and Random Forest
+
+![![Correlation Heatmap](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/crossvalscoreScenFam.png?raw=true)](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/crossvalscoreScenFam.png?raw=true)
