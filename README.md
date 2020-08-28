@@ -137,3 +137,4 @@ Alright! So once we change the question from *how good* a student is to whether 
 
 ![![Correlation Heatmap](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/confusion%20matrix.png?raw=true)](https://github.com/igoekce/aida-students-project/blob/master/Docs/Pictures/confusion%20matrix.png?raw=true)
 
+Looking at our confusion matrix, we can see that we have little cases where we miss someone who could pass (5 cases) but we often predict someone to pass, who in reality would not pass. So universities could use our model without grades as an upper bound, as usually less people will be passing anyway.
